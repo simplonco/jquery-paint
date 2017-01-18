@@ -1,38 +1,34 @@
 $(document).ready(function() {
 
-    var color = "white";
+  $('#red').on("click", function() {
+    couleur = "red";
+  });
 
-    //selector //listener //callback
-    $('.box').on("click", function() {
-        $(this).addClass(color); // function body
-    });
+  $('#green').on("click", function() {
+    couleur = "green";
+  });
 
-    $(".box").on('dblclick', function() {
-        $(this).removeClass(color);
-    });
+  $('#blue').on("click", function() {
+    couleur = "blue";
+  });
 
-    $('#reset').on('click', function() {
-        $('.box').removeClass('red blue green yellow white');
-    });
+  $('#yellow').on("click", function() {
+    couleur = "yellow";
+  });
 
-    $('#red').on('click', function() {
-        color = 'red';
-    });
+  $('#white').on("click", function() {
+    couleur = "white";
+  });
 
-    $('#blue').on('click', function() {
-        color = 'blue';
-    });
+  // Si pixel cliqué, il change de couleur
+  var pixels = $('.box');
 
-    $('#green').on('click', function() {
-        color = 'green';
-    });
+  pixels.on("click", function() {
+    $(this).removeClass('red green blue yellow white');
+    $(this).addClass(couleur);
+  });
 
-    $('#yellow').on('click', function() {
-        color = 'yellow';
-    });
-
-    $('#white').on('click', function() {
-        color = 'white';
-    });
-
-})
+  $('#reset').on("click", function(){
+    pixels.removeClass('red green blue yellow white');
+  });
+});
